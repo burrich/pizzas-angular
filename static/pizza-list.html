@@ -1,0 +1,27 @@
+<div ng-controller="PizzaListController as $ctrl">
+  <h1>Liste des pizzas</h1>
+
+  <button ng-click="$ctrl.addPizza()" class="btn btn-default" id="createPizza">
+    Nouvelle Pizza
+  </button>
+
+  <table class="table" id="pizzasTable">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="pizza in $ctrl.pizzas track by $index">
+        <td>{{ pizza.name }}</td>
+        <td>{{ pizza.status }}</td>
+        <td>
+          <button ng-click="$ctrl.cookPizza(pizza)" ng-if="!pizza.status" class="btn">Cuire</button>
+          <span ng-if="pizza.status">CUITE</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
