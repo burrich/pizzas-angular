@@ -1,0 +1,38 @@
+<style>
+  input.ng-invalid.ng-touched {
+    background: indianred
+  }
+  label {
+    display: block
+  }
+</style>
+
+<div class="row">
+  <div class="col-md-12">
+    <div ng-controller="PizzaController as $ctrl">
+      <form name="pizzaForm"
+            ng-submit="$ctrl.savePizza(pizzaForm)"
+            novalidate>
+
+      <label for="name">Nom :</label>
+      <input required ng-model="$ctrl.pizza.name" name="name" type="text" id="name">
+      <!--<p class="text-danger" ng-if="pizzaForm.name.$invalid && pizzaForm.name.$touched">Nom obligatoire</p>-->
+      <br>
+
+      <label for="topping_{{ topping }}" ng-repeat="(topping, toppingName) in $ctrl.toppings track by $index">
+        <input type="checkbox" id="topping_{{ topping }}" ng-model="$ctrl.pizza.toppings[$index]"> {{ topping }}
+      </label>
+      <br>
+
+      <!--<label for="email">Email :</label>-->
+      <!--<input  ng-model="$ctrl.pizza.email" name="email" type="email" id="emailname">-->
+
+      <button type="submit" class="btn btn-default">save</button>
+
+      <!--<pre>{{ pizzaForm.name.$error.required | json }}</pre>-->
+
+    </form>
+    </div>
+  </div>
+</div>
+

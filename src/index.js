@@ -1,5 +1,5 @@
 import angular from 'angular'
-import PizzaModule from './pizza'
+import { PizzaModule } from './pizza'
 
 angular.module('dtang', [
   PizzaModule
